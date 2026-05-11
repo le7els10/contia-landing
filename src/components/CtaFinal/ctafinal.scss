@@ -1,0 +1,58 @@
+@use '../../styles/variables' as *;
+
+.cta-final {
+  background-color: $color-marino-oscuro;
+  color: $color-blanco;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacing-xl;
+  }
+
+  &__logo {
+    img {
+      height: 36px;
+      width: auto;
+    }
+  }
+
+  &__heading {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    max-width: 18ch;
+  }
+
+  &__subheading {
+    font-size: 1rem;
+    color: rgba($color-blanco, 0.7);
+    line-height: 1.65;
+    max-width: 48ch;
+  }
+
+  &__cta {
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-terracota;
+    color: $color-blanco;
+    font-size: 1rem;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-full;
+    box-shadow: 5px 5px 15px rgba(194, 90, 44, 0.4), -3px -3px 8px rgba($neu-dark-shadow-light, 0.8);
+    transition: box-shadow $transition-smooth, transform $transition-base;
+
+    &:hover {
+      box-shadow: 6px 6px 18px rgba(194, 90, 44, 0.5), -3px -3px 8px rgba($neu-dark-shadow-light, 0.9);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3), inset -1px -1px 4px rgba(255, 255, 255, 0.08);
+    }
+  }
+}

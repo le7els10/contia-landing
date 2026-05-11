@@ -1,0 +1,202 @@
+@use '../../styles/variables' as *;
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color-marino-oscuro, 0.7);
+  backdrop-filter: blur(4px);
+  padding: $spacing-lg;
+  animation: modal-overlay-in 0.2s ease;
+
+  &__dialog {
+    background-color: $neu-bg-card;
+    border-radius: $radius-xl;
+    padding: $spacing-2xl;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    // Highlight atenuado — evita el brillo blanco puro sobre el overlay oscuro
+    box-shadow: 8px 8px 20px rgba(184, 186, 200, 0.5), -4px -4px 12px rgba(255, 255, 255, 0.45);
+    animation: modal-dialog-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    color: $color-marino;
+    opacity: 0.5;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+    background: $neu-bg-card;
+    box-shadow: 3px 3px 6px rgba(184, 186, 200, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.45);
+    transition: box-shadow $transition-base, opacity $transition-base;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 5px 5px 10px rgba(184, 186, 200, 0.5), -3px -3px 7px rgba(255, 255, 255, 0.45);
+    }
+
+    &:active {
+      box-shadow: $neu-shadow-inset-sm;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    letter-spacing: -0.02em;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__subtitle {
+    font-size: 0.9rem;
+    color: $color-marino;
+    opacity: 0.6;
+    margin-bottom: $spacing-xl;
+    line-height: 1.55;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: $font-weight-medium;
+    color: $color-marino;
+
+    span[aria-hidden] {
+      color: $color-terracota;
+    }
+  }
+
+  &__optional {
+    font-weight: $font-weight-regular;
+    color: $color-marino;
+    opacity: 0.45;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 0.9375rem;
+    color: $color-marino;
+    background-color: $neu-bg-input;
+    box-shadow: $neu-shadow-inset;
+    transition: box-shadow $transition-base;
+
+    &::placeholder {
+      color: rgba($color-marino, 0.35);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 2px 2px 5px $neu-shadow-dark,
+                  inset -2px -2px 5px $neu-shadow-light,
+                  0 0 0 2px rgba($color-terracota, 0.25);
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      box-shadow: inset 2px 2px 5px rgba(194, 66, 76, 0.2),
+                  inset -2px -2px 5px $neu-shadow-light,
+                  0 0 0 2px rgba($color-terracota, 0.3);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__submit {
+    display: block;
+    width: 100%;
+    padding: $spacing-md;
+    background-color: $color-terracota;
+    color: $color-blanco;
+    font-size: 1rem;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-full;
+    box-shadow: $neu-shadow-accent;
+    margin-top: $spacing-xs;
+    transition: box-shadow $transition-smooth, transform $transition-base;
+
+    &:hover {
+      box-shadow: $neu-shadow-accent-hv;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.25), inset -1px -1px 4px rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // ─── Success state ────────────────────────────────────────────────────────
+  &__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacing-md;
+    padding-block: $spacing-lg;
+  }
+
+  &__success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: $color-crema;
+    box-shadow: $neu-shadow-md;
+    color: $color-terracota;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $font-weight-bold;
+  }
+
+  &__success-title {
+    font-size: 1.375rem;
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    letter-spacing: -0.02em;
+  }
+
+  &__success-text {
+    font-size: 0.9375rem;
+    color: $color-marino;
+    opacity: 0.65;
+    line-height: 1.6;
+    max-width: 36ch;
+  }
+}
+
+@keyframes modal-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-dialog-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}

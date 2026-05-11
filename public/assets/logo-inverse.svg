@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 249.98399999999998 64" role="img" aria-label="Contia">
+  <g transform="scale(1)">
+    <path d="M50 18 C 45.5 12.5 38.5 9 31 9 C 18.3 9 8 19.3 8 32" stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none"></path>
+    <path d="M8 32 C 8 44.7 18.3 55 31 55 C 38.5 55 45.5 51.5 50 46" stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none"></path>
+  </g>
+  <text x="78.08" y="47.36" font-family="&#39;DM Sans&#39;, system-ui, sans-serif" font-weight="600" font-size="50.56" letter-spacing="-1.7696000000000003" fill="#ffffff">Contia</text>
+</svg>

@@ -1,0 +1,88 @@
+// ─── Colors ───────────────────────────────────────────────────────────────────
+$color-marino:        #31344b;
+$color-terracota:      #c25a2c;
+$color-terracota-dark: #a84c24;
+$color-crema:          #e6e7ee;
+$color-marino-oscuro:  #1f2335;
+$color-blanco:         #ffffff;
+
+// Semantic aliases
+$color-text-primary:   $color-marino;
+$color-text-inverse:   $color-blanco;
+$color-bg-default:     $color-crema;
+$color-bg-dark:        $color-marino-oscuro;
+$color-accent:         $color-terracota;
+
+// ─── Neumorphism ──────────────────────────────────────────────────────────────
+// Light surface (base: #e6e7ee)
+$neu-shadow-dark:  #b8bac8;   // darker shade for depth
+$neu-shadow-light: #ffffff;   // highlight
+
+// Card surface is slightly lighter than the base
+$neu-bg-card:  #eceef5;
+// Inset surface (inputs, pressed) is slightly darker
+$neu-bg-input: #d8dae5;
+
+// Raised shadows (card emerges from surface)
+$neu-shadow-sm: 3px 3px 6px #{$neu-shadow-dark}, -3px -3px 6px #{$neu-shadow-light};
+$neu-shadow-md: 5px 5px 12px #{$neu-shadow-dark}, -5px -5px 12px #{$neu-shadow-light};
+$neu-shadow-lg: 8px 8px 16px #{$neu-shadow-dark}, -8px -8px 16px #{$neu-shadow-light};
+
+// Inset shadows (element pressed into surface)
+$neu-shadow-inset:    inset 3px 3px 7px #{$neu-shadow-dark}, inset -3px -3px 7px #{$neu-shadow-light};
+$neu-shadow-inset-sm: inset 2px 2px 5px #{$neu-shadow-dark}, inset -2px -2px 5px #{$neu-shadow-light};
+$neu-shadow-pressed:  inset 4px 4px 9px #b0b2c0, inset -2px -2px 5px #{$neu-shadow-light};
+
+// Terracota-tinted shadows for CTAs & accents
+$neu-shadow-accent:    4px 4px 10px rgba(194, 90, 44, 0.35), -2px -2px 6px #{$neu-shadow-light};
+$neu-shadow-accent-hv: 5px 5px 12px rgba(194, 90, 44, 0.45), -2px -2px 6px #{$neu-shadow-light};
+
+// Dark surface (base: #1f2335)
+$neu-dark-shadow-dark:  #10121e;
+$neu-dark-shadow-light: #282b42;
+$neu-dark-shadow-md:    5px 5px 12px #{$neu-dark-shadow-dark}, -5px -5px 12px #{$neu-dark-shadow-light};
+$neu-dark-shadow-lg:    8px 8px 16px #{$neu-dark-shadow-dark}, -8px -8px 16px #{$neu-dark-shadow-light};
+$neu-dark-shadow-inset: inset 3px 3px 7px #{$neu-dark-shadow-dark}, inset -3px -3px 7px #{$neu-dark-shadow-light};
+$neu-dark-bg-card:      #232640;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+$font-family-base: 'DM Sans', sans-serif;
+
+$font-weight-regular:  400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+// ─── Spacing ──────────────────────────────────────────────────────────────────
+$spacing-xs:  0.25rem;  //  4px
+$spacing-sm:  0.5rem;   //  8px
+$spacing-md:  1rem;     // 16px
+$spacing-lg:  1.5rem;   // 24px
+$spacing-xl:  2rem;     // 32px
+$spacing-2xl: 3rem;     // 48px
+$spacing-3xl: 4rem;     // 64px
+$spacing-4xl: 6rem;     // 96px
+
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+$bp-md: 768px;
+$bp-lg: 1200px;
+
+// ─── Layout ───────────────────────────────────────────────────────────────────
+$container-max: 1140px;
+$navbar-height: 72px;
+
+// ─── Border radius ────────────────────────────────────────────────────────────
+$radius-sm:   8px;
+$radius-md:   12px;
+$radius-lg:   16px;
+$radius-xl:   20px;
+$radius-full: 9999px;
+
+// ─── Legacy flat shadows (non-neu contexts) ───────────────────────────────────
+$shadow-sm: 0 1px 4px rgba(31, 35, 53, 0.08);
+$shadow-md: 0 4px 16px rgba(31, 35, 53, 0.12);
+$shadow-lg: 0 8px 32px rgba(31, 35, 53, 0.16);
+
+// ─── Transitions ──────────────────────────────────────────────────────────────
+$transition-base:   0.2s ease;
+$transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);

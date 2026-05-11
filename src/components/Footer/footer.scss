@@ -1,0 +1,70 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background-color: $color-marino;
+  color: rgba($color-blanco, 0.75);
+  padding-block: $spacing-3xl;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: 2fr 1fr 1fr;
+      align-items: start;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__logo {
+    img {
+      height: 30px;
+      width: auto;
+    }
+  }
+
+  &__tagline {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 30ch;
+  }
+
+  &__nav,
+  &__legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    @media (max-width: #{$bp-md - 1px}) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $spacing-md;
+    }
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: $font-weight-medium;
+    color: rgba($color-blanco, 0.65);
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-blanco;
+    }
+  }
+
+  &__copy {
+    font-size: 0.8125rem;
+    color: rgba($color-blanco, 0.4);
+    grid-column: 1 / -1;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($color-blanco, 0.1);
+  }
+}

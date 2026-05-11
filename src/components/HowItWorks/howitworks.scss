@@ -1,0 +1,97 @@
+@use '../../styles/variables' as *;
+
+.how-it-works {
+  background-color: $color-crema;
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__heading {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    letter-spacing: -0.025em;
+    margin-bottom: $spacing-md;
+  }
+
+  &__subheading {
+    font-size: 1rem;
+    color: $color-marino;
+    opacity: 0.65;
+    max-width: 44ch;
+    margin-inline: auto;
+    line-height: 1.65;
+  }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-xl;
+    }
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+    position: relative;
+    background: $neu-bg-card;
+    border-radius: $radius-xl;
+    padding: $spacing-xl;
+    box-shadow: $neu-shadow-md;
+
+    @media (min-width: $bp-md) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__step-number {
+    font-size: 2.5rem;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: $color-crema;
+    text-shadow: 2px 2px 4px $neu-shadow-dark, -1px -1px 2px $neu-shadow-light;
+  }
+
+  &__step-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: $radius-md;
+    background-color: $color-crema;
+    box-shadow: $neu-shadow-accent;
+    color: $color-blanco;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: $color-terracota;
+  }
+
+  &__step-title {
+    font-size: 1.0625rem;
+    font-weight: $font-weight-semibold;
+    color: $color-marino;
+    line-height: 1.3;
+  }
+
+  &__step-desc {
+    font-size: 0.9rem;
+    color: $color-marino;
+    opacity: 0.65;
+    line-height: 1.65;
+    max-width: 28ch;
+
+    @media (min-width: $bp-md) {
+      max-width: none;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-regular;
+  color: $color-text-primary;
+  background-color: $color-bg-default;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: $spacing-sm $spacing-md;
+  background: $color-terracota;
+  color: $color-blanco;
+  font-weight: $font-weight-semibold;
+  z-index: 9999;
+  border-radius: 0 0 $radius-sm 0;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Focus visible global
+:focus-visible {
+  outline: 2px solid $color-terracota;
+  outline-offset: 2px;
+  border-radius: $radius-sm;
+}

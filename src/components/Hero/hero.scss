@@ -1,0 +1,254 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-crema;
+  padding-top: calc(#{$navbar-height} + #{$spacing-3xl});
+  padding-bottom: $spacing-4xl;
+
+  &__decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+
+    &--1 {
+      width: 480px;
+      height: 480px;
+      background-color: $color-terracota;
+      top: -180px;
+      right: -120px;
+    }
+
+    &--2 {
+      width: 280px;
+      height: 280px;
+      background-color: $color-marino;
+      bottom: -80px;
+      left: -60px;
+    }
+  }
+
+  &__decoration-bar {
+    position: absolute;
+    width: 4px;
+    height: 200px;
+    background-color: $color-terracota;
+    opacity: 0.15;
+    top: 40%;
+    right: 42%;
+    border-radius: $radius-full;
+    transform: rotate(15deg);
+  }
+
+  &__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    align-items: center;
+
+    @media (min-width: $bp-md) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-terracota;
+  }
+
+  &__heading {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  &__subheading {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: $font-weight-regular;
+    color: $color-marino;
+    opacity: 0.75;
+    line-height: 1.65;
+    max-width: 44ch;
+  }
+
+  &__break {
+    display: none;
+    @media (min-width: $bp-md) {
+      display: inline;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md $spacing-xl;
+    font-size: 1rem;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-full;
+    transition: box-shadow $transition-smooth, transform $transition-base;
+
+    &--primary {
+      background-color: $color-terracota;
+      color: $color-blanco;
+      box-shadow: $neu-shadow-accent;
+
+      &:hover {
+        box-shadow: $neu-shadow-accent-hv;
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.25), inset -1px -1px 4px rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &--secondary {
+      background-color: $color-crema;
+      color: $color-marino;
+      box-shadow: $neu-shadow-md;
+
+      &:hover {
+        box-shadow: $neu-shadow-lg;
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        box-shadow: $neu-shadow-inset-sm;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__disclaimer {
+    font-size: 0.875rem;
+    color: $color-marino;
+    opacity: 1;
+  }
+
+  // ─── Fake invoice card (neumorphic) ───────────────────────────────────────
+  &__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__card {
+    background: $neu-bg-card;
+    border-radius: $radius-xl;
+    box-shadow: $neu-shadow-lg;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+  }
+
+  &__card-header {
+    display: flex;
+    gap: $spacing-xs;
+    padding: $spacing-md $spacing-lg;
+    background-color: $color-crema;
+    border-bottom: 1px solid rgba($color-marino, 0.05);
+  }
+
+  &__card-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+
+    &--red    { background: #ff5f57; }
+    &--yellow { background: #febc2e; }
+    &--green  { background: #28c840; }
+  }
+
+  &__card-body {
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__card-line {
+    height: 10px;
+    border-radius: $radius-full;
+    background-color: $neu-bg-input;
+    box-shadow: $neu-shadow-inset-sm;
+
+    &--label { width: 55%; }
+    &--value { width: 80%; }
+    &--sm    { width: 50%; }
+    &--price { width: 30%; margin-left: auto; }
+  }
+
+  &__card-divider {
+    height: 1px;
+    background-color: rgba($color-marino, 0.06);
+    box-shadow: 0 1px 0 rgba($neu-shadow-light, 0.8);
+  }
+
+  &__card-row {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__card-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: $color-marino;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-md;
+    background: $color-crema;
+    box-shadow: $neu-shadow-inset-sm;
+
+    strong {
+      font-size: 1.125rem;
+      font-weight: $font-weight-bold;
+      color: $color-marino;
+    }
+  }
+
+  &__card-badge {
+    background-color: $color-crema;
+    box-shadow: $neu-shadow-sm;
+    border-radius: $radius-sm;
+    padding: $spacing-xs $spacing-sm;
+
+    span {
+      font-size: 0.75rem;
+      font-weight: $font-weight-semibold;
+      color: $color-terracota;
+    }
+  }
+}
