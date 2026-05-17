@@ -30,7 +30,7 @@ const LogoInline: FC = () => (
     </g>
     <text
       x="78.08"
-      y="47.36"
+      y="49.7"
       fontFamily="'DM Sans', system-ui, sans-serif"
       fontWeight="600"
       fontSize="50.56"
