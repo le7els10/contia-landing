@@ -13,7 +13,7 @@ const problems = [
   },
   {
     icon: Clock,
-    text: 'Pasas horas haciendo facturas a mano o en hojas de cálculo que nadie más entiende.',
+    text: 'Pasas horas llenando facturas a mano o te arriesgas a multas por no cumplir con la DIAN.',
   },
 ];
 
@@ -28,7 +28,7 @@ const solutions = [
   },
   {
     icon: HeadphonesIcon,
-    text: 'Soporte humano en español cuando lo necesitas. No bots, no manuales de 100 páginas.',
+    text: 'Guías paso a paso en español y soporte por WhatsApp cuando lo necesitas. Sin tecnicismos.',
   },
 ];
 

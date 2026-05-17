@@ -14,43 +14,68 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: 'Esencial',
-    price: '$29.900',
-    period: 'mes',
-    tagline: 'Ideal para negocios que están comenzando',
+    name: 'Starter',
+    price: '$39.900',
+    period: '',
+    tagline: '30 facturas · Sin vencimiento',
     features: [
-      'Hasta 50 facturas por mes',
-      '1 usuario',
-      'Envío directo a la DIAN',
-      'Descarga en PDF',
-      'Soporte por correo',
+      '30 facturas electrónicas',
+      'Sin mensualidad',
+      'Sin contrato',
+      'Saldo no vence',
+      'Válido ante la DIAN',
     ],
     recommended: false,
-    cta: 'Empezar con Esencial',
+    cta: 'Elegir Starter',
+  },
+  {
+    name: 'Popular',
+    price: '$69.900',
+    period: '',
+    tagline: '60 facturas · Sin vencimiento',
+    features: [
+      '60 facturas electrónicas',
+      'Sin mensualidad',
+      'Sin contrato',
+      'Saldo no vence',
+      'Válido ante la DIAN',
+    ],
+    recommended: true,
+    cta: 'Elegir Popular',
+  },
+  {
+    name: 'Creciendo',
+    price: '$119.900',
+    period: '',
+    tagline: '120 facturas · Sin vencimiento',
+    features: [
+      '120 facturas electrónicas',
+      'Sin mensualidad',
+      'Sin contrato',
+      'Saldo no vence',
+      'Válido ante la DIAN',
+    ],
+    recommended: false,
+    cta: 'Elegir Creciendo',
   },
   {
     name: 'Pro',
-    price: '$69.900',
-    period: 'mes',
-    tagline: 'Para negocios que facturan más',
+    price: '$189.900',
+    period: '',
+    tagline: '250 facturas · Sin vencimiento',
     features: [
-      'Facturas ilimitadas',
-      'Hasta 3 usuarios',
-      'Envío directo a la DIAN',
-      'Descarga en PDF y XML',
-      'Reportes y estadísticas',
-      'Soporte prioritario',
+      '250 facturas electrónicas',
+      'Sin mensualidad',
+      'Sin contrato',
+      'Saldo no vence',
+      'Válido ante la DIAN',
     ],
-    recommended: true,
-    cta: 'Empezar con Pro',
+    recommended: false,
+    cta: 'Elegir Pro',
   },
 ];
 
-interface PricingProps {
-  onOpenModal: () => void;
-}
-
-const Pricing: FC<PricingProps> = ({ onOpenModal }) => {
+const Pricing: FC = () => {
   return (
     <section
       className="pricing section"
@@ -63,7 +88,7 @@ const Pricing: FC<PricingProps> = ({ onOpenModal }) => {
             Planes y precios
           </h2>
           <p className="pricing__subheading">
-            Sin letra pequeña, sin cobros escondidos. Cancela cuando quieras.
+            Sin mensualidad. Sin contrato. Pagas solo cuando facturas.
           </p>
         </header>
 
@@ -83,7 +108,6 @@ const Pricing: FC<PricingProps> = ({ onOpenModal }) => {
 
               <div className="pricing__price">
                 <span className="pricing__price-amount">{plan.price}</span>
-                <span className="pricing__price-period">/ {plan.period}</span>
               </div>
 
               <ul className="pricing__features" role="list">
@@ -95,22 +119,13 @@ const Pricing: FC<PricingProps> = ({ onOpenModal }) => {
                 ))}
               </ul>
 
-              <button
-                className={`pricing__cta${plan.recommended ? ' pricing__cta--primary' : ' pricing__cta--secondary'}`}
-                onClick={onOpenModal}
-              >
-                {plan.cta}
-              </button>
+              <span className="pricing__soon">Muy pronto</span>
             </li>
           ))}
         </ul>
 
         <p className="pricing__note">
-          ¿Tienes dudas sobre qué plan necesitas?{' '}
-          <button className="pricing__note-link" onClick={onOpenModal}>
-            Habla con nosotros
-          </button>{' '}
-          y te ayudamos.
+          Los paquetes no tienen fecha de vencimiento. El saldo se descuenta cada vez que emites una factura válida ante la DIAN.
         </p>
       </div>
     </section>

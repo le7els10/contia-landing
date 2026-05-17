@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+
+.comparativa {
+  background-color: $color-crema;
+  color: $color-marino;
+  padding-block: $spacing-4xl;
+
+  &__inner {
+    max-width: 820px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-3xl;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__heading {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__subheading {
+    font-size: 1rem;
+    color: $color-marino;
+    opacity: 0.7;
+    margin-bottom: $spacing-md;
+  }
+
+  &__table-wrap {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: $neu-bg-card;
+    border-radius: $radius-xl;
+    box-shadow: $neu-shadow-md;
+    font-size: 1rem;
+    margin-bottom: $spacing-lg;
+    overflow: hidden;
+  }
+
+  &__table th,
+  &__table td {
+    padding: $spacing-md $spacing-lg;
+    text-align: left;
+    border-bottom: 1px solid rgba($color-marino, 0.08);
+  }
+
+  &__table th {
+    background: $color-crema;
+    font-weight: $font-weight-semibold;
+    color: $color-marino;
+    font-size: 1.05em;
+  }
+
+  &__table tr:last-child td {
+    border-bottom: none;
+  }
+
+  &__yes {
+    color: $color-terracota;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__no {
+    color: #b71c1c;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__footer {
+    text-align: center;
+    font-size: 0.98rem;
+    color: $color-marino;
+    opacity: 0.8;
+    margin-top: $spacing-lg;
+    line-height: 1.6;
+  }
+}

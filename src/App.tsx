@@ -1,33 +1,27 @@
-import { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Problem from './components/Problem/Problem';
 import Services from './components/Services/Services';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import Pricing from './components/Pricing/Pricing';
+import Comparativa from './components/Comparativa/Comparativa';
 import CtaFinal from './components/CtaFinal/CtaFinal';
 import Footer from './components/Footer/Footer';
-import ContactModal from './components/ContactModal/ContactModal';
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
-
   return (
     <>
-      <Navbar onOpenModal={openModal} />
+      <Navbar />
       <main id="main">
-        <Hero onOpenModal={openModal} />
+        <Hero />
         <Problem />
         <Services />
         <HowItWorks />
-        <Pricing onOpenModal={openModal} />
-        <CtaFinal onOpenModal={openModal} />
+        <Comparativa />
+        <Pricing />
+        <CtaFinal />
       </main>
       <Footer />
-      <ContactModal isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 }

@@ -206,3 +206,17 @@
     }
   }
 }
+
+.pricing__soon {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  border-radius: $radius-md;
+  border: 1.5px dashed $color-terracota;
+  color: $color-terracota;
+  font-size: 0.9rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.02em;
+  margin-top: auto;
+}

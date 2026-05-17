@@ -1,11 +1,7 @@
 import { type FC } from 'react';
 import './ctafinal.scss';
 
-interface CtaFinalProps {
-  onOpenModal: () => void;
-}
-
-const CtaFinal: FC<CtaFinalProps> = ({ onOpenModal }) => {
+const CtaFinal: FC = () => {
   return (
     <section
       className="cta-final section"
@@ -28,9 +24,7 @@ const CtaFinal: FC<CtaFinalProps> = ({ onOpenModal }) => {
         <p className="cta-final__subheading">
           Empieza hoy a facturar electrónicamente sin complicaciones.
         </p>
-        <button className="cta-final__cta" onClick={onOpenModal}>
-          Hablar con nosotros
-        </button>
+        <span className="cta-final__soon">Muy pronto</span>
       </div>
     </section>
   );

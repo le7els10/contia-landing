@@ -105,3 +105,17 @@
     }
   }
 }
+
+.navbar__soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: $radius-full;
+  background-color: $color-crema;
+  border: 1.5px dashed $color-terracota;
+  color: $color-terracota;
+  font-size: 0.8125rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}

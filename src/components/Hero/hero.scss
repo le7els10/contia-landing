@@ -252,3 +252,16 @@
     }
   }
 }
+
+.hero__soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  border-radius: $radius-full;
+  background-color: transparent;
+  border: 2px dashed $color-terracota;
+  color: $color-terracota;
+  font-size: 1rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.02em;
+}

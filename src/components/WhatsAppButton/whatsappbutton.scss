@@ -1,0 +1,93 @@
+@use '../../styles/variables' as *;
+
+.wa-button {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-full;
+  background-color: #25d366;
+  color: $color-blanco;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+
+  transition: transform $transition-smooth, box-shadow $transition-smooth;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+    outline: none;
+
+    .wa-button__tooltip {
+      opacity: 1;
+      transform: translateX(-108%) scale(1);
+      pointer-events: auto;
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid #25d366;
+    outline-offset: 3px;
+  }
+
+  &__icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  &__tooltip {
+    position: absolute;
+    right: calc(100% + $spacing-sm);
+    top: 50%;
+    transform: translateX(-104%) translateY(-50%) scale(0.95);
+
+    background-color: $color-marino-oscuro;
+    color: $color-blanco;
+    font-size: 0.8125rem;
+    font-weight: $font-weight-medium;
+    white-space: nowrap;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-sm;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-smooth, transform $transition-smooth;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: $color-marino-oscuro;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .wa-button {
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 50px;
+    height: 50px;
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &__tooltip {
+      display: none;
+    }
+  }
+}

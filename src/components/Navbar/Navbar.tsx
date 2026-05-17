@@ -2,10 +2,6 @@ import { type FC, useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import './navbar.scss';
 
-interface NavbarProps {
-  onOpenModal: () => void;
-}
-
 // Inline SVG eliminates the extra network request for the logo asset
 const LogoInline: FC = () => (
   <svg
@@ -46,7 +42,7 @@ const LogoInline: FC = () => (
   </svg>
 );
 
-const Navbar: FC<NavbarProps> = ({ onOpenModal }) => {
+const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -69,13 +65,7 @@ const Navbar: FC<NavbarProps> = ({ onOpenModal }) => {
           <a href="#como-funciona" className="navbar__link" onClick={handleNavClick}>Cómo funciona</a>
           <a href="#servicios" className="navbar__link" onClick={handleNavClick}>Servicios</a>
           <a href="#planes" className="navbar__link" onClick={handleNavClick}>Planes</a>
-          <button
-            className="navbar__cta"
-            onClick={() => { onOpenModal(); handleNavClick(); }}
-            aria-label="Hablar con nosotros"
-          >
-            Hablar con nosotros
-          </button>
+          <span className="navbar__soon">Muy pronto</span>
         </nav>
 
         <button

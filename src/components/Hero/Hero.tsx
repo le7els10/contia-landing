@@ -1,11 +1,7 @@
 import { type FC } from 'react';
 import './hero.scss';
 
-interface HeroProps {
-  onOpenModal: () => void;
-}
-
-const Hero: FC<HeroProps> = ({ onOpenModal }) => {
+const Hero: FC = () => {
   return (
     <section className="hero" aria-labelledby="hero-heading">
       {/* Decoración geométrica */}
@@ -25,17 +21,12 @@ const Hero: FC<HeroProps> = ({ onOpenModal }) => {
             Emite facturas válidas ante la DIAN desde tu celular, en minutos.
           </p>
           <div className="hero__actions">
-            <button
-              className="hero__cta hero__cta--primary"
-              onClick={onOpenModal}
-            >
-              Hablar con nosotros
-            </button>
+            <span className="hero__soon">Muy pronto</span>
             <a href="#planes" className="hero__cta hero__cta--secondary">
               Ver planes
             </a>
           </div>
-          <p className="hero__disclaimer">Sin tarjeta de crédito · Configuración en minutos</p>
+          <p className="hero__disclaimer">Sin mensualidad · Sin contrato · Sin vencimiento</p>
         </div>
 
         <div className="hero__visual" aria-hidden="true">
