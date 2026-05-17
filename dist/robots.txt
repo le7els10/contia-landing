@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://contia.co/sitemap.xml
