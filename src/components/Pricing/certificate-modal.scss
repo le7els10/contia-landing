@@ -1,0 +1,152 @@
+@use '../../styles/variables' as *;
+
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color-marino-oscuro, 0.7);
+  backdrop-filter: blur(4px);
+  padding: $spacing-lg;
+  animation: cert-overlay-in 0.2s ease;
+
+  &__dialog {
+    background-color: $neu-bg-card;
+    border-radius: $radius-xl;
+    padding: $spacing-2xl;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 48px rgba($color-marino-oscuro, 0.35);
+    animation: cert-dialog-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: rgba($color-terracota, 0.4) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($color-terracota, 0.4);
+      border-radius: $radius-full;
+
+      &:hover {
+        background-color: rgba($color-terracota, 0.65);
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    color: $color-marino;
+    opacity: 0.5;
+    padding: $spacing-xs;
+    border-radius: $radius-sm;
+    background: $neu-bg-card;
+    box-shadow:
+      3px 3px 6px rgba(184, 186, 200, 0.5),
+      -2px -2px 5px rgba(255, 255, 255, 0.45);
+    transition: box-shadow $transition-base, opacity $transition-base;
+
+    &:hover {
+      opacity: 1;
+      box-shadow:
+        5px 5px 10px rgba(184, 186, 200, 0.5),
+        -3px -3px 7px rgba(255, 255, 255, 0.45);
+    }
+
+    &:active {
+      box-shadow: $neu-shadow-inset-sm;
+    }
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    letter-spacing: -0.02em;
+    margin-bottom: $spacing-xl;
+    padding-right: $spacing-2xl;
+    line-height: 1.35;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__section {
+    background-color: $color-crema;
+    border-radius: $radius-md;
+    padding: $spacing-md $spacing-lg;
+    box-shadow: $neu-shadow-inset-sm;
+  }
+
+  &__section-title {
+    font-size: 0.75rem;
+    font-weight: $font-weight-semibold;
+    color: $color-terracota;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__section-text {
+    font-size: 0.9rem;
+    color: $color-marino;
+    line-height: 1.65;
+
+    strong {
+      font-weight: $font-weight-bold;
+      color: $color-terracota;
+    }
+  }
+
+  &__cta {
+    display: block;
+    width: 100%;
+    padding: $spacing-md;
+    border-radius: $radius-full;
+    background-color: $color-terracota;
+    color: $color-blanco;
+    font-size: 0.9375rem;
+    font-weight: $font-weight-semibold;
+    text-align: center;
+    box-shadow: $neu-shadow-accent;
+    transition: box-shadow $transition-smooth, transform $transition-base;
+
+    &:hover {
+      box-shadow: $neu-shadow-accent-hv;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.25), inset -1px -1px 4px rgba(255, 255, 255, 0.1);
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes cert-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes cert-dialog-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}

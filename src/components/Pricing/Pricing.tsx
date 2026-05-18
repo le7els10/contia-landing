@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import { Check } from 'lucide-react';
 import './pricing.scss';
+import CertificateInfo from './CertificateInfo';
 
 interface Plan {
   name: string;
@@ -91,6 +92,8 @@ const Pricing: FC = () => {
             Sin mensualidad. Sin contrato. Pagas solo cuando facturas.
           </p>
         </header>
+
+        <CertificateInfo />
 
         <ul className="pricing__grid" role="list">
           {plans.map((plan) => (
