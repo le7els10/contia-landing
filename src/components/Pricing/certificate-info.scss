@@ -1,0 +1,111 @@
+@use '../../styles/variables' as *;
+
+.cert-info {
+  max-width: 780px;
+  margin-inline: auto;
+  margin-bottom: $spacing-3xl;
+  background-color: $neu-bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $neu-shadow-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+    color: $color-marino;
+    text-align: center;
+    letter-spacing: -0.015em;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    width: 100%;
+
+    @media (min-width: $bp-md) {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0;
+    }
+  }
+
+  &__option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    text-align: center;
+    padding: $spacing-lg;
+    background-color: $color-crema;
+    border-radius: $radius-lg;
+    box-shadow: $neu-shadow-inset-sm;
+  }
+
+  &__divider {
+    display: none;
+
+    @media (min-width: $bp-md) {
+      display: block;
+      width: 1.5px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba($color-marino, 0.15) 20%,
+        rgba($color-marino, 0.15) 80%,
+        transparent
+      );
+      flex-shrink: 0;
+      margin-block: $spacing-md;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    &--check {
+      color: $color-terracota;
+    }
+
+    &--file {
+      color: $color-terracota;
+    }
+  }
+
+  &__label {
+    font-size: 0.9375rem;
+    font-weight: $font-weight-semibold;
+    color: $color-marino;
+    line-height: 1.4;
+  }
+
+  &__desc {
+    font-size: 0.875rem;
+    color: $color-marino;
+    opacity: 0.7;
+    line-height: 1.5;
+
+    &--accent {
+      opacity: 1;
+      color: $color-marino;
+
+      strong {
+        color: $color-terracota;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  &__note {
+    font-size: 0.8125rem;
+    color: $color-marino;
+    opacity: 0.55;
+    text-align: center;
+    line-height: 1.5;
+  }
+}
