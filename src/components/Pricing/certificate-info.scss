@@ -47,24 +47,6 @@
     box-shadow: $neu-shadow-inset-sm;
   }
 
-  &__divider {
-    display: none;
-
-    @media (min-width: $bp-md) {
-      display: block;
-      width: 1.5px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba($color-marino, 0.15) 20%,
-        rgba($color-marino, 0.15) 80%,
-        transparent
-      );
-      flex-shrink: 0;
-      margin-block: $spacing-md;
-    }
-  }
-
   &__icon {
     flex-shrink: 0;
 

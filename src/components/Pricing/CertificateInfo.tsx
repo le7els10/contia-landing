@@ -14,8 +14,6 @@ const CertificateInfo: FC = () => {
           <p className="cert-info__desc">Configúralo gratis y empieza a facturar</p>
         </div>
 
-        <div className="cert-info__divider" aria-hidden="true" />
-
         <div className="cert-info__option">
           <FileText size={28} className="cert-info__icon cert-info__icon--file" aria-hidden="true" />
           <p className="cert-info__label">No tengo certificado</p>
