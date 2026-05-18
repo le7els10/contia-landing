@@ -1,11 +1,26 @@
-import { type FC } from 'react';
-import { CheckCircle, FileText } from 'lucide-react';
+import { type FC, useState } from 'react';
+import { CheckCircle, FileText, Info } from 'lucide-react';
 import './certificate-info.scss';
+import CertificateModal from './CertificateModal';
 
 const CertificateInfo: FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="cert-info" aria-label="Información sobre el certificado DIAN">
-      <h3 className="cert-info__title">¿Qué necesitas para empezar?</h3>
+      <div className="cert-info__title-row">
+        <h3 className="cert-info__title">¿Qué necesitas para empezar?</h3>
+        <button
+          className="cert-info__info-trigger"
+          onClick={() => setModalOpen(true)}
+          aria-label="Más información sobre el certificado DIAN"
+        >
+          <Info size={15} aria-hidden="true" />
+          <span>¿Qué es el certificado DIAN?</span>
+        </button>
+      </div>
+
+      <CertificateModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
 
       <div className="cert-info__options">
         <div className="cert-info__option">
