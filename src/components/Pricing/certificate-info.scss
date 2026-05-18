@@ -30,7 +30,7 @@
     @media (min-width: $bp-md) {
       flex-direction: row;
       align-items: stretch;
-      gap: 0;
+      gap: $spacing-md;
     }
   }
 
