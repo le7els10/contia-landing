@@ -34,13 +34,13 @@ const CertificateInfo: FC = () => {
           <p className="cert-info__label">No tengo certificado</p>
           <p className="cert-info__desc cert-info__desc--accent">
             Lo tramitamos por ti —{' '}
-            <strong>$104.900, una sola vez</strong>
+            <strong>$104.900 al año</strong>
           </p>
         </div>
       </div>
 
       <p className="cert-info__note">
-        El certificado es tuyo para siempre, sin importar cuánto facturas.
+        El certificado se renueva una vez al año, sin importar cuánto factures.
       </p>
     </div>
   );

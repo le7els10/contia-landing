@@ -88,7 +88,7 @@ const CertificateModal: FC<CertificateModalProps> = ({ isOpen, onClose }) => {
             <h3 className="cert-modal__section-title">Si no tienes uno</h3>
             <p className="cert-modal__section-text">
               Nosotros lo tramitamos por ti ante una entidad certificadora autorizada.
-              Costo único: <strong>$104.900 COP</strong>. Nunca se repite.
+              Costo: <strong>$104.900 COP al año</strong>, con renovación anual.
             </p>
           </div>
         </div>
