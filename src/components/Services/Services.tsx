@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { FileText, Users, Package, type LucideIcon } from 'lucide-react';
+import { FileText, Users, Package, ArrowRight, type LucideIcon } from 'lucide-react';
 import './services.scss';
 
 interface ServiceCard {
@@ -8,16 +8,18 @@ interface ServiceCard {
   tagline: string;
   description: string;
   available: boolean;
+  href?: string;
 }
 
 const services: ServiceCard[] = [
   {
     icon: FileText,
     name: 'Contia Facturas',
-    tagline: 'Facturación electrónica DIAN',
+    tagline: 'Facturación electrónica y Venta POS',
     description:
-      'Emite, gestiona y descarga tus facturas electrónicas desde cualquier dispositivo. Cumple con la DIAN sin complicaciones.',
+      'Emite facturas electrónicas o registra ventas POS en el mostrador, desde cualquier dispositivo. Ambas válidas ante la DIAN, sin complicaciones.',
     available: true,
+    href: 'https://facturas.contia.co/',
   },
   {
     icon: Users,
@@ -75,6 +77,16 @@ const Services: FC = () => {
                 <h3 className="services__card-name">{service.name}</h3>
                 <p className="services__card-tagline">{service.tagline}</p>
                 <p className="services__card-desc">{service.description}</p>
+                {service.href && (
+                  <a
+                    className="services__card-cta"
+                    href={service.href}
+                    aria-label={`Ir a ${service.name}`}
+                  >
+                    Ir a la app
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </a>
+                )}
               </li>
             );
           })}

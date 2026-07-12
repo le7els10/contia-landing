@@ -36,6 +36,7 @@
   }
 
   &__card {
+    position: relative;
     background-color: $neu-bg-card;
     border-radius: $radius-xl;
     padding: $spacing-xl;
@@ -125,5 +126,32 @@
     opacity: 0.7;
     line-height: 1.65;
     margin-top: $spacing-xs;
+  }
+
+  &__card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    margin-top: $spacing-md;
+    font-size: 0.875rem;
+    font-weight: $font-weight-semibold;
+    color: $color-terracota;
+    text-decoration: none;
+
+    svg {
+      transition: transform $transition-smooth;
+    }
+
+    // Estira el enlace sobre toda la tarjeta para que sea clickeable
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: $radius-xl;
+    }
+  }
+
+  &__card--available:hover &__card-cta svg {
+    transform: translateX(3px);
   }
 }
