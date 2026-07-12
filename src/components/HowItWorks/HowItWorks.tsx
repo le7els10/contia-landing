@@ -20,9 +20,9 @@ const steps = [
   {
     number: '03',
     icon: Send,
-    title: 'Emite facturas válidas ante la DIAN',
+    title: 'Emite facturas o ventas POS ante la DIAN',
     description:
-      'Con un par de clics tienes tu factura electrónica lista. La enviamos directamente a la DIAN y a tu cliente.',
+      'Con un par de clics tienes tu factura electrónica lista, o registras una venta POS en el mostrador. Todo se envía directamente a la DIAN y a tu cliente.',
   },
 ];
 
