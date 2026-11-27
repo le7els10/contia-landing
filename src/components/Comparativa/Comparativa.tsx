@@ -29,7 +29,7 @@ const Comparativa: FC = () => {
                 <td className="comparativa__no">❌ Sí</td>
               </tr>
               <tr>
-                <td>Facturas sin fecha de vencimiento</td>
+                <td>Documentos sin fecha de vencimiento</td>
                 <td className="comparativa__yes">✅ Sí</td>
                 <td className="comparativa__no">❌ No</td>
               </tr>

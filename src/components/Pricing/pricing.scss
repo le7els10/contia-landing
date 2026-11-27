@@ -24,14 +24,15 @@
   }
 
   &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: $spacing-lg;
     max-width: 780px;
     margin-inline: auto;
 
-    @media (min-width: $bp-md) {
-      grid-template-columns: repeat(2, 1fr);
+    @media (min-width: $bp-lg) {
+      max-width: $container-max;
     }
   }
 
@@ -45,6 +46,18 @@
     position: relative;
     box-shadow: $neu-shadow-md;
     transition: box-shadow $transition-smooth, transform $transition-smooth;
+
+    // Ancho por columnas: 1 en móvil, 2 en tablet, 3 en desktop.
+    // flex-grow 0 evita que la última fila incompleta se estire.
+    flex: 0 1 100%;
+
+    @media (min-width: $bp-md) {
+      flex-basis: calc((100% - #{$spacing-lg}) / 2);
+    }
+
+    @media (min-width: $bp-lg) {
+      flex-basis: calc((100% - 2 * #{$spacing-lg}) / 3);
+    }
 
     &:hover {
       box-shadow: $neu-shadow-lg;

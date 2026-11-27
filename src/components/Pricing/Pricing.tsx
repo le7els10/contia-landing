@@ -18,13 +18,13 @@ const plans: Plan[] = [
     name: 'Starter',
     price: '$39.900',
     period: '',
-    tagline: '30 facturas · Sin vencimiento',
+    tagline: '30 documentos · Sin vencimiento',
     features: [
-      '30 facturas electrónicas',
+      '30 documentos',
+      'Facturas DIAN y POS',
       'Sin mensualidad',
       'Sin contrato',
       'Saldo no vence',
-      'Válido ante la DIAN',
     ],
     recommended: false,
     cta: 'Elegir Starter',
@@ -33,13 +33,13 @@ const plans: Plan[] = [
     name: 'Popular',
     price: '$69.900',
     period: '',
-    tagline: '60 facturas · Sin vencimiento',
+    tagline: '60 documentos · Sin vencimiento',
     features: [
-      '60 facturas electrónicas',
+      '60 documentos',
+      'Facturas DIAN y POS',
       'Sin mensualidad',
       'Sin contrato',
       'Saldo no vence',
-      'Válido ante la DIAN',
     ],
     recommended: true,
     cta: 'Elegir Popular',
@@ -48,13 +48,13 @@ const plans: Plan[] = [
     name: 'Creciendo',
     price: '$119.900',
     period: '',
-    tagline: '120 facturas · Sin vencimiento',
+    tagline: '120 documentos · Sin vencimiento',
     features: [
-      '120 facturas electrónicas',
+      '120 documentos',
+      'Facturas DIAN y POS',
       'Sin mensualidad',
       'Sin contrato',
       'Saldo no vence',
-      'Válido ante la DIAN',
     ],
     recommended: false,
     cta: 'Elegir Creciendo',
@@ -63,16 +63,31 @@ const plans: Plan[] = [
     name: 'Pro',
     price: '$189.900',
     period: '',
-    tagline: '250 facturas · Sin vencimiento',
+    tagline: '250 documentos · Sin vencimiento',
     features: [
-      '250 facturas electrónicas',
+      '250 documentos',
+      'Facturas DIAN y POS',
       'Sin mensualidad',
       'Sin contrato',
       'Saldo no vence',
-      'Válido ante la DIAN',
     ],
     recommended: false,
     cta: 'Elegir Pro',
+  },
+  {
+    name: 'Volumen',
+    price: '$299.900',
+    period: '',
+    tagline: '500 documentos · Sin vencimiento',
+    features: [
+      '500 documentos',
+      'Facturas DIAN y POS',
+      'Sin mensualidad',
+      'Sin contrato',
+      'Saldo no vence',
+    ],
+    recommended: false,
+    cta: 'Elegir Volumen',
   },
 ];
 
@@ -135,7 +150,7 @@ const Pricing: FC = () => {
         </ul>
 
         <p className="pricing__note">
-          Los paquetes no tienen fecha de vencimiento. El saldo se descuenta cada vez que emites una factura válida ante la DIAN.
+          Los paquetes no tienen fecha de vencimiento. El saldo se descuenta igual cada vez que emites una factura electrónica o una venta POS válida ante la DIAN.
         </p>
       </div>
     </section>

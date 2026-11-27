@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { FileText, Users, Package, type LucideIcon } from 'lucide-react';
+import { FileText, Users, Package, ArrowRight, type LucideIcon } from 'lucide-react';
 import './services.scss';
 
 interface ServiceCard {
@@ -15,9 +15,9 @@ const services: ServiceCard[] = [
   {
     icon: FileText,
     name: 'Contia Facturas',
-    tagline: 'Facturación electrónica DIAN',
+    tagline: 'Facturación electrónica y Venta POS',
     description:
-      'Emite, gestiona y descarga tus facturas electrónicas desde cualquier dispositivo. Cumple con la DIAN sin complicaciones.',
+      'Emite facturas electrónicas o registra ventas POS en el mostrador, desde cualquier dispositivo. Ambas válidas ante la DIAN, sin complicaciones.',
     available: true,
     href: 'https://facturas.contia.co/',
   },
@@ -75,21 +75,21 @@ const Services: FC = () => {
                 <h3 className="services__card-name">{service.name}</h3>
                 <p className="services__card-tagline">{service.tagline}</p>
                 <p className="services__card-desc">{service.description}</p>
+                {service.href && (
+                  <a
+                    className="services__card-cta"
+                    href={service.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ir a ${service.name}`}
+                  >
+                    Ir a la app
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </a>
+                )}
               </>
             );
-            return service.href ? (
-              <li key={service.name}>
-                <a
-                  href={service.href}
-                  className={cardClass}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Ir a ${service.name}`}
-                >
-                  {cardContent}
-                </a>
-              </li>
-            ) : (
+            return (
               <li key={service.name} className={cardClass}>
                 {cardContent}
               </li>
