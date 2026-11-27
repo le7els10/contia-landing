@@ -45,8 +45,13 @@
     gap: $spacing-sm;
     box-shadow: $neu-shadow-md;
     transition: box-shadow $transition-smooth, transform $transition-smooth;
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
 
     &--available {
+      cursor: pointer;
+
       &:hover {
         box-shadow: $neu-shadow-lg;
         transform: translateY(-4px);

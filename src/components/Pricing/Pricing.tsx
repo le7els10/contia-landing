@@ -137,7 +137,14 @@ const Pricing: FC = () => {
                 ))}
               </ul>
 
-              <span className="pricing__soon">Muy pronto</span>
+              <a
+                href="https://facturas.contia.co/"
+                className={`pricing__cta${plan.recommended ? ' pricing__cta--primary' : ' pricing__cta--secondary'}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {plan.cta}
+              </a>
             </li>
           ))}
         </ul>

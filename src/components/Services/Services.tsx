@@ -59,11 +59,9 @@ const Services: FC = () => {
         <ul className="services__grid" role="list">
           {services.map((service) => {
             const Icon = service.icon;
-            return (
-              <li
-                key={service.name}
-                className={`services__card${service.available ? ' services__card--available' : ' services__card--soon'}`}
-              >
+            const cardClass = `services__card${service.available ? ' services__card--available' : ' services__card--soon'}`;
+            const cardContent = (
+              <>
                 <div className="services__card-top">
                   <div className="services__icon-wrap" aria-hidden="true">
                     <Icon size={24} className="services__icon" aria-hidden="true" />
@@ -81,12 +79,19 @@ const Services: FC = () => {
                   <a
                     className="services__card-cta"
                     href={service.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={`Ir a ${service.name}`}
                   >
                     Ir a la app
                     <ArrowRight size={16} aria-hidden="true" />
                   </a>
                 )}
+              </>
+            );
+            return (
+              <li key={service.name} className={cardClass}>
+                {cardContent}
               </li>
             );
           })}

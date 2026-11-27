@@ -1,7 +1,13 @@
 import { type FC } from 'react';
 import './ctafinal.scss';
 
-const CtaFinal: FC = () => {
+const WA_HREF = 'https://wa.me/573002391674?text=Hola%2C%20quiero%20empezar%20a%20facturar%20con%20Contia';
+
+interface CtaFinalProps {
+  onOpenContact: () => void;
+}
+
+const CtaFinal: FC<CtaFinalProps> = ({ onOpenContact }) => {
   return (
     <section
       className="cta-final section"
@@ -24,7 +30,23 @@ const CtaFinal: FC = () => {
         <p className="cta-final__subheading">
           Empieza hoy a facturar electrónicamente sin complicaciones.
         </p>
-        <span className="cta-final__soon">Muy pronto</span>
+        <div className="cta-final__actions">
+          <a
+            href={WA_HREF}
+            className="cta-final__cta cta-final__cta--primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Escríbenos por WhatsApp
+          </a>
+          <button
+            className="cta-final__cta cta-final__cta--secondary"
+            onClick={onOpenContact}
+            type="button"
+          >
+            Enviar correo
+          </button>
+        </div>
       </div>
     </section>
   );
