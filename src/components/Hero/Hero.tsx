@@ -1,7 +1,13 @@
 import { type FC } from 'react';
 import './hero.scss';
 
-const Hero: FC = () => {
+const WA_HREF = 'https://wa.me/573002391674?text=Hola%2C%20quiero%20empezar%20a%20facturar%20con%20Contia';
+
+interface HeroProps {
+  onOpenContact: () => void;
+}
+
+const Hero: FC<HeroProps> = ({ onOpenContact }) => {
   return (
     <section className="hero" aria-labelledby="hero-heading">
       {/* Decoración geométrica */}
@@ -21,10 +27,21 @@ const Hero: FC = () => {
             Emite facturas válidas ante la DIAN desde tu celular, en minutos.
           </p>
           <div className="hero__actions">
-            <span className="hero__soon">Muy pronto</span>
-            <a href="#planes" className="hero__cta hero__cta--secondary">
-              Ver planes
+            <a
+              href={WA_HREF}
+              className="hero__cta hero__cta--primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Escríbenos por WhatsApp
             </a>
+            <button
+              className="hero__cta hero__cta--secondary"
+              onClick={onOpenContact}
+              type="button"
+            >
+              Enviar correo
+            </button>
           </div>
           <p className="hero__disclaimer">Sin mensualidad · Sin contrato · Sin vencimiento</p>
         </div>

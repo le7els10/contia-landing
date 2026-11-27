@@ -8,6 +8,7 @@ interface ServiceCard {
   tagline: string;
   description: string;
   available: boolean;
+  href?: string;
 }
 
 const services: ServiceCard[] = [
@@ -18,6 +19,7 @@ const services: ServiceCard[] = [
     description:
       'Emite, gestiona y descarga tus facturas electrónicas desde cualquier dispositivo. Cumple con la DIAN sin complicaciones.',
     available: true,
+    href: 'https://facturas.contia.co/',
   },
   {
     icon: Users,
@@ -57,11 +59,9 @@ const Services: FC = () => {
         <ul className="services__grid" role="list">
           {services.map((service) => {
             const Icon = service.icon;
-            return (
-              <li
-                key={service.name}
-                className={`services__card${service.available ? ' services__card--available' : ' services__card--soon'}`}
-              >
+            const cardClass = `services__card${service.available ? ' services__card--available' : ' services__card--soon'}`;
+            const cardContent = (
+              <>
                 <div className="services__card-top">
                   <div className="services__icon-wrap" aria-hidden="true">
                     <Icon size={24} className="services__icon" aria-hidden="true" />
@@ -75,6 +75,23 @@ const Services: FC = () => {
                 <h3 className="services__card-name">{service.name}</h3>
                 <p className="services__card-tagline">{service.tagline}</p>
                 <p className="services__card-desc">{service.description}</p>
+              </>
+            );
+            return service.href ? (
+              <li key={service.name}>
+                <a
+                  href={service.href}
+                  className={cardClass}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Ir a ${service.name}`}
+                >
+                  {cardContent}
+                </a>
+              </li>
+            ) : (
+              <li key={service.name} className={cardClass}>
+                {cardContent}
               </li>
             );
           })}

@@ -28,7 +28,7 @@
 
     .wa-button__tooltip {
       opacity: 1;
-      transform: translateX(-108%) scale(1);
+      transform: translateY(-50%) translateX(0) scale(1);
       pointer-events: auto;
     }
   }
@@ -48,7 +48,7 @@
     position: absolute;
     right: calc(100% + $spacing-sm);
     top: 50%;
-    transform: translateX(-104%) translateY(-50%) scale(0.95);
+    transform: translateY(-50%) translateX(8px) scale(0.95);
 
     background-color: $color-marino-oscuro;
     color: $color-blanco;

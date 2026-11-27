@@ -65,7 +65,14 @@ const Navbar: FC = () => {
           <a href="#como-funciona" className="navbar__link" onClick={handleNavClick}>Cómo funciona</a>
           <a href="#servicios" className="navbar__link" onClick={handleNavClick}>Servicios</a>
           <a href="#planes" className="navbar__link" onClick={handleNavClick}>Planes</a>
-          <span className="navbar__soon">Muy pronto</span>
+          <a
+            href="https://facturas.contia.co/"
+            className="navbar__cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ir a la plataforma
+          </a>
         </nav>
 
         <button

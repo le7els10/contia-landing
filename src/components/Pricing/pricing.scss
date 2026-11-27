@@ -151,6 +151,8 @@
     font-size: 0.9375rem;
     font-weight: $font-weight-semibold;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
     transition: box-shadow $transition-smooth, transform $transition-base;
 
     &--primary {

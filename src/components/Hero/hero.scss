@@ -114,6 +114,7 @@
     font-size: 1rem;
     font-weight: $font-weight-semibold;
     border-radius: $radius-full;
+    cursor: pointer;
     transition: box-shadow $transition-smooth, transform $transition-base;
 
     &--primary {

@@ -1,4 +1,5 @@
 import { type FC, useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { X } from 'lucide-react';
 import './contactmodal.scss';
 
@@ -14,15 +15,16 @@ interface FormState {
   message: string;
 }
 
+type SendStatus = 'idle' | 'sending' | 'success' | 'error';
+
 const initialForm: FormState = { name: '', email: '', phone: '', message: '' };
 
 const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [form, setForm] = useState<FormState>(initialForm);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SendStatus>('idle');
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  // Trap focus & lock scroll
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -33,7 +35,6 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) onClose();
@@ -50,16 +51,31 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contia contact form payload:', form);
-    setSubmitted(true);
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID as string,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string,
+      );
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const handleClose = () => {
     onClose();
     setTimeout(() => {
-      setSubmitted(false);
+      setStatus('idle');
       setForm(initialForm);
     }, 300);
   };
@@ -85,7 +101,7 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <X size={20} aria-hidden="true" />
         </button>
 
-        {submitted ? (
+        {status === 'success' ? (
           <div className="contact-modal__success">
             <div className="contact-modal__success-icon" aria-hidden="true">✓</div>
             <h2 className="contact-modal__success-title">¡Mensaje enviado!</h2>
@@ -104,6 +120,12 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <p className="contact-modal__subtitle">
               Cuéntanos sobre tu negocio y te ayudamos a empezar.
             </p>
+
+            {status === 'error' && (
+              <p className="contact-modal__error" role="alert">
+                Hubo un error al enviar el mensaje. Intenta de nuevo.
+              </p>
+            )}
 
             <form className="contact-modal__form" onSubmit={handleSubmit} noValidate>
               <div className="contact-modal__field">
@@ -172,8 +194,12 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <button className="contact-modal__submit" type="submit">
-                Enviar mensaje
+              <button
+                className="contact-modal__submit"
+                type="submit"
+                disabled={status === 'sending'}
+              >
+                {status === 'sending' ? 'Enviando…' : 'Enviar mensaje'}
               </button>
             </form>
           </>

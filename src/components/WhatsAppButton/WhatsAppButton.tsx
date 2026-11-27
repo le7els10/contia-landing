@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import './whatsappbutton.scss';
 
-const WHATSAPP_URL = 'https://wa.me/57XXXXXXXXXX';
+const WHATSAPP_URL = 'https://wa.me/573002391674?text=Hola%2C%20quiero%20empezar%20a%20facturar%20con%20Contia';
 
 const WhatsAppButton: FC = () => {
   return (
